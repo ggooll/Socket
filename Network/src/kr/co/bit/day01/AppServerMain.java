@@ -1,7 +1,9 @@
 package kr.co.bit.day01;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -28,21 +30,31 @@ public class AppServerMain {
 
 			// 접속한 클라이언트에게 환영메시지를 보내고싶다.
 			// DataOutputStream을 필터클래스로 사용함 (다른 것 해볼 것)
-			String msg = "서버 : 접속을 환영합니다.";
+			// String msg = "서버 : 접속을 환영합니다.";
+
 			OutputStream os = client.getOutputStream();
 			DataOutputStream dos = new DataOutputStream(os);
-			
-			// DataOutputStream으로 메시지를 보냄
-			dos.writeUTF(msg);
-			dos.flush();
-			
-			
-			// 소켓을 닫음..?
-			server.close();
+			InputStream is = client.getInputStream();
+			DataInputStream dis = new DataInputStream(is);
+			String msg = null;
+
+			while (true) {
+				msg = dis.readUTF();
+				if (msg.equals("종료")) {
+					server.close();
+					break;
+				}
+
+				// DataOutputStream으로 메시지를 보냄
+				dos.writeUTF(msg);
+				dos.flush();
+			}
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		System.out.println("서버를 종료합니다.");
 
 	}
 
