@@ -35,6 +35,10 @@ public class AppServerMain {
 			// DataOutputStream으로 메시지를 보냄
 			dos.writeUTF(msg);
 			dos.flush();
+			
+			
+			// 소켓을 닫음..?
+			server.close();
 
 		} catch (IOException e) {
 			e.printStackTrace();

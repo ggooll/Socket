@@ -24,6 +24,8 @@ public class AppClientMain {
 			String msg = dis.readUTF();
 			System.out.println(msg);
 
+			socket.close();
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
