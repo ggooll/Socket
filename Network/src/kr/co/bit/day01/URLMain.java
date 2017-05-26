@@ -14,7 +14,6 @@ public class URLMain {
 	public static void main(String[] args) {
 
 		// 네트워크도 IO 기반
-
 		try {
 			// URL
 			URL urlObj = new URL("https://www.naver.com");
@@ -39,7 +38,6 @@ public class URLMain {
 				}
 				System.out.print((char) a);
 			}
-
 		} catch (MalformedURLException e) {
 			System.out.println(e.getMessage());
 		} catch (IOException e) {
