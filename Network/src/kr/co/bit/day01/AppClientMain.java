@@ -1,10 +1,15 @@
 package kr.co.bit.day01;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -23,15 +28,25 @@ public class AppClientMain {
 
 			// 서버가 보낸 환영메시지를 받기위한 InputStream
 			InputStream is = socket.getInputStream();
-			DataInputStream dis = new DataInputStream(is);
 			OutputStream os = socket.getOutputStream();
-			DataOutputStream dos = new DataOutputStream(os);
+
+			// DataInputStream dis = new DataInputStream(is);
+			// DataOutputStream dos = new DataOutputStream(os);
+
+			InputStreamReader isr = new InputStreamReader(is);
+			BufferedReader br = new BufferedReader(isr);
+
+			OutputStreamWriter osw = new OutputStreamWriter(os);
+			PrintWriter out = new PrintWriter(osw);
 			Scanner scan = new Scanner(System.in);
 
 			while (true) {
 				String msg = scan.nextLine();
-				dos.writeUTF(msg);
-				dos.flush();
+				out.println(msg);
+				out.flush();
+
+				// dos.writeUTF(msg);
+				// dos.flush();
 
 				if (msg.equals("종료")) {
 					socket.close();
@@ -40,7 +55,9 @@ public class AppClientMain {
 				}
 
 				// 서버가 DataOutputStream으로 보낸 메시지를 읽음
-				msg = dis.readUTF();
+				// msg = dis.readUTF();
+
+				msg = br.readLine();
 				System.out.println(msg);
 			}
 
