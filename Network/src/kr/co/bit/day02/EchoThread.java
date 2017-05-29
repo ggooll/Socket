@@ -10,6 +10,7 @@ import java.net.Socket;
 
 /**
  * @author 임규철
+ * 
  */
 public class EchoThread extends Thread {
 
@@ -17,6 +18,7 @@ public class EchoThread extends Thread {
 
 	public EchoThread(Socket socket) {
 		this.socket = socket;
+
 	}
 
 	@Override

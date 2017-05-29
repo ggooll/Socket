@@ -5,7 +5,7 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 
 /**
- * @author ÀÓ±ÔÃ¶
+ * @author ì„ê·œì² 
  */
 public class InetAddressMain {
 
@@ -13,24 +13,22 @@ public class InetAddressMain {
 
 		try {
 
-			// ³» ÄÄÇ»ÅÍÀÇ Á¤º¸¸¦ ¾ò¾î¿È localHost
+			// ë‚´ ì»´í“¨í„°ì˜ ì •ë³´ë¥¼ ì–»ì–´ì˜´ localHost
 			InetAddress localHost = InetAddress.getLocalHost();
 			System.out.println(localHost.getHostName());
 			System.out.println(localHost.getHostAddress());
 
-			// ÀÓÀÇÀÇ ÁÖ¼Ò¿¡ ´ëÇÑ Á¤º¸¸¦ ¾ò¾î¿È(µµ¸ŞÀÎ(name)À» ÁÖ°í)
+			// ì„ì˜ì˜ ì£¼ì†Œì— ëŒ€í•œ ì •ë³´ë¥¼ ì–»ì–´ì˜´(ë„ë©”ì¸(name)ì„ ì£¼ê³ )
 			InetAddress bit = InetAddress.getByName("www.bitacademy.com");
 			System.out.println(bit);
 			InetAddress naver = InetAddress.getByName("www.naver.com");
 			System.out.println(naver);
-			
-			// Á¢¼ÓÀÌ ¸¹Àº È¸»çµé, ¿©·¯´ëÀÇ È£½ºÆ®¸¦ All by nameÀ¸·Î Á¶È¸ÇÒ ¼ö ÀÖÀ½
+
+			// ì ‘ì†ì´ ë§ì€ íšŒì‚¬ë“¤, ì—¬ëŸ¬ëŒ€ì˜ í˜¸ìŠ¤íŠ¸ë¥¼ All by nameìœ¼ë¡œ ì¡°íšŒí•  ìˆ˜ ìˆìŒ
 			InetAddress[] navers = InetAddress.getAllByName("www.naver.com");
 			System.out.println(Arrays.toString(navers));
-			// 202.179.177.22 
-			
-			
-			
+			// 202.179.177.22
+
 		} catch (UnknownHostException e) {
 			System.out.println(e.getMessage());
 		}
