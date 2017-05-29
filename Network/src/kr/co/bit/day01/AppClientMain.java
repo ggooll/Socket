@@ -1,9 +1,6 @@
 package kr.co.bit.day01;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -43,7 +40,6 @@ public class AppClientMain {
 			while (true) {
 				String msg = scan.nextLine();
 				out.println(msg);
-				out.flush();
 
 				// dos.writeUTF(msg);
 				// dos.flush();
