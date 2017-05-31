@@ -40,6 +40,7 @@ public class AppClientMain {
 			while (true) {
 				String msg = scan.nextLine();
 				out.println(msg);
+				out.flush();
 
 				// dos.writeUTF(msg);
 				// dos.flush();
